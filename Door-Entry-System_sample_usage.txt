@@ -9,9 +9,11 @@ des_controller                  des_inputs                      thread-factory
 # ./des_display &
 [1] 663577
 # The display is running as process_id: 663577
-./des_controller 663577 &
+
+#./des_controller 663577 &
 [2] 667674
 # The controller is running as PID: 667674
-./des_inputs 667674
+
+#./des_inputs 667674
 
 Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)

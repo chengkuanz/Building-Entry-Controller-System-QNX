@@ -1,4 +1,4 @@
-# Building Entry Controller System - QNX
+# Building Entry Controller System - QNX Neutrino
 
 ## Overview
 

@@ -3,17 +3,77 @@
 # cd ../../../
 # cd tmp 
 # ls
-acceptance_test.sh              des_display                     keep_files
-acceptance_test.sh.txt          des_display.c                   templab4
-des_controller                  des_inputs                      thread-factory
+des_controller        des_display               des_inputs
+
+--------------------------
+des_display
+--------------------------
 # ./des_display &
 [1] 663577
 # The display is running as process_id: 663577
+Person scanned ID, ID = 12345 
+Left door Unlocked by guard 
+left door Opened 
+Person weighed, Weight = 123 
+Left door closed (automatically) 
+Left door Locked by guard 
+Right door Unlocked by Guard 
+Right door Opened 
+Right door closed (automatically) 
+Right door Locked by guard 
+Display Exiting...
 
+
+--------------------------
+des_controller
+--------------------------
 #./des_controller 663577 &
 [2] 667674
 # The controller is running as PID: 667674
+Received exit command. Exiting... 
 
+--------------------------
+des_inputs
+--------------------------
 #./des_inputs 667674
 
 Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+ls
+
+ Enter the person's id: 
+12345
+
+Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+glu
+
+Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+lo
+
+Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+ws
+
+ Enter the person's weight: 
+123
+
+Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+lc
+
+Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+gll
+
+Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+gru
+
+Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+ro
+
+Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+rc
+
+Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+grl
+
+Enter the event type (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc = left closed, rc = right closed , gru = guard right unlock, grl = guardright lock, gll=guard left lock, glu = guard left unlock, exit = exit programs)
+exit
+Inputs Exiting...
+# 

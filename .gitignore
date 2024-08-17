@@ -1,5 +1,5 @@
 # Build artifacts
-/des_controller/build/
+
 *.o
 *.d
 *.bin
@@ -20,4 +20,3 @@ Thumbs.db
 # Makefiles
 Makefile
 /des_controller/Makefile
-/.metadata

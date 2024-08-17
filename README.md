@@ -23,8 +23,6 @@ The project consists of three primary programs, each responsible for a specific 
 
 - **`des_inputs`**: Simulates input events from the devices (e.g., card readers, door latches, scale). It prompts the user for inputs and sends them as messages to the `des_controller` program. The command-line interface for simulating various input events is implemented in the `des_inputs/des_inputs.c` file.
 
-
-
 ## Usage
 
 ### `des_inputs`
@@ -123,17 +121,60 @@ The project consists of three primary programs, each responsible for a specific 
 
 ## Sample Usage
 
-- The following is an example of how the system might be used:
+### Scenario 1: Entering the Building
 
-  ls 12345  # Simulate a left door scan with person ID 12345  
-  ws 70     # Simulate a weight scale measurement of 70kg  
-  glu       # Guard unlocks the left door  
-  lo        # Simulate the left door opening  
-  lc        # Simulate the left door closing  
-  gru       # Guard unlocks the right door  
-  ro        # Simulate the right door opening  
-  rc        # Simulate the right door closing
+This scenario represents a person entering the building, beginning with a left scan (`ls`) of the person’s ID:
 
-- To exit the simulation:
+ls 12345 glu  
+lo  
+ws 123  
+lc  
+gll  
+gru  
+ro  
+rc  
+grl  
+exit
 
-  exit
+### Scenario 2: LeftRightScan
+
+This scenario represents a sequence where two individuals enter, with one using the left door and the other using the right door:
+
+ls 12345 glu  
+lo  
+ws 123  
+lc  
+gll  
+gru  
+ro  
+rc  
+grl  
+rs 54321  
+gru  
+ro  
+ws 321  
+rc  
+grl  
+glu  
+lo  
+lc  
+gll  
+exit
+
+### Scenario 3: ExitScan
+
+This scenario represents the command to exit the simulation:
+
+exit
+
+### Scenario 4: ErrorScan
+
+This scenario demonstrates the system's response to invalid input events. Here, "ls 54321" is a valid input, but all subsequent inputs are invalid:
+
+ls 54321  
+lo  
+ro  
+lo  
+ro  
+letmeout  
+exit  

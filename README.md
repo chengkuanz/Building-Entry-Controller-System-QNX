@@ -15,20 +15,15 @@ The project demonstrates the use of semaphores, message passing, and shared memo
 
 ## Project Components
 
-The project consists of three primary programs:
+The project consists of three primary programs, each responsible for a specific aspect of the building entry controller system:
 
-- **`des_display`**: A program that displays the status of the system, showing which door is open/closed and other relevant information. This program runs in the background and prints status updates to the console.
+- **`des_display`**: Displays the status of the system, showing which door is open/closed and other relevant information. This program runs in the background and prints status updates to the console. It responds to state changes managed by the `des_controller` program.
 
-- **`des_controller`**: The core program that runs the state machine for the building entry controller system. It manages the persistent data and state transitions, sending messages to `des_display` for status updates.
+- **`des_controller`**: The core program that runs the state machine for the building entry controller system. It manages persistent data and state transitions, handling inputs from the `des_inputs` program and sending status updates to the `des_display` program. The main logic for the entry control system resides in the `des_controller/des_controller.c` file, while the shared data structures and constants used across the programs are defined in the `des_controller/des.h` file.
 
-- **`des_inputs`**: A program that simulates input events from the devices (e.g., card readers, door latches, scale). It prompts the user for inputs and sends them as messages to the `des_controller` program.
+- **`des_inputs`**: Simulates input events from the devices (e.g., card readers, door latches, scale). It prompts the user for inputs and sends them as messages to the `des_controller` program. The command-line interface for simulating various input events is implemented in the `des_inputs/des_inputs.c` file.
 
-Key files include:
 
-- **`des_controller/des_controller.c`**: Contains the main logic for the entry control system. Manages state transitions and handles inputs from the `des_inputs` program.
-- **`des_display/des_display.c`**: Displays the status of the system in response to state changes.
-- **`des_inputs/des_inputs.c`**: Provides a command-line interface to simulate various input events such as card scanning, door openings, and closings.
-- **`des_controller/des.h`**: Shared header file defining data structures and constants used across the programs.
 
 ## Usage
 

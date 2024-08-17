@@ -4,7 +4,7 @@
 
 This project is a simulation of a building entry controller system designed as part of the CST8244 - Real-Time Programming course. The system manages the entry and exit of individuals through a controlled two-door system using card scanners, a scale to weigh individuals, and manual guard-operated locks. The project is implemented in C and runs on the QNX Neutrino RTOS. The system is designed to handle multiple tasks concurrently, including card scanning, weight measurement, and door control, while ensuring real-time responsiveness and data integrity.
 
-The project demonstrates the use of semaphores, message passing, and shared memory to synchronize tasks and communicate between processes. The system is tested for various scenarios, including invalid card scans, weight limit violations, and concurrent access to shared resources. The project aims to provide a reliable and efficient solution for managing building entry control systems in real-time environments.
+The project demonstrates the use of **semaphores**, **message passing**, and **shared memory** to synchronize tasks and communicate between processes. The system is tested for various scenarios, including invalid card scans, weight limit violations, and concurrent access to shared resources. The project aims to provide a reliable and efficient solution for managing building entry control systems in real-time environments.
 
 ## Author
 [Chengkuan Zhao](https://github.com/chengkuanz)     
@@ -148,6 +148,15 @@ rc
 grl  
 exit
 ```
+
+* The person scans their card at the left scanner (ls).    
+* The person scans their card at the left scanner (ls).    
+* The person scans their card at the left scanner (ls).    
+* The controller checks if all doors are locked and closed.    
+* The guard unlocks the left door (glu), and the person enters.    
+* The person steps on the scale (ws).    
+* The left door closes and locks (lc, gll).        
+* The right door unlocks (gru), the person exits    
 
 <details>
   <summary>des_display</summary>

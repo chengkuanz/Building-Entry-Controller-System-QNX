@@ -9,7 +9,7 @@ The project demonstrates the use of semaphores, message passing, and shared memo
 ## Author
 [Chengkuan Zhao](https://github.com/chengkuanz)     
 [Thi Thanh Van Le](https://github.com/Le-Vivian)    
-June 2024
+June 2024 - August 2024
 
 
 ## System Components

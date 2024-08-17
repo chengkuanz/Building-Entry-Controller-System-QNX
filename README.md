@@ -4,13 +4,13 @@
 
 This project is a simulation of a building entry controller system designed as part of the CST8244 - Real-Time Programming course. The system manages the entry and exit of individuals through a controlled two-door system using card scanners, a scale to weigh individuals, and manual guard-operated locks. The project is implemented in C and runs on the QNX Neutrino RTOS. The system is designed to handle multiple tasks concurrently, including card scanning, weight measurement, and door control, while ensuring real-time responsiveness and data integrity.
 
-The project demonstrates the use of **semaphores**, **message passing**, and **shared memory** to synchronize tasks and communicate between processes. The system is tested for various scenarios, including invalid card scans, weight limit violations, and concurrent access to shared resources. The project aims to provide a reliable and efficient solution for managing building entry control systems in real-time environments.
+The project demonstrates the use of **semaphores**, **message passing** via `MsgSend`, `MsgReceive`, and `MsgReply` functions, **shared memory**, **channels** for inter-process communication, and **state machine design** to synchronize tasks and manage state transitions. Additionally, the project incorporates **concurrent processing** and **process synchronization** to ensure real-time operation.
 
-## Author
-[Chengkuan Zhao](https://github.com/chengkuanz)     
-[Thi Thanh Van Le](https://github.com/Le-Vivian)    
+## Authors
+
+[Chengkuan Zhao](https://github.com/chengkuanz)  
+[Thi Thanh Van Le](https://github.com/Le-Vivian)  
 June 2024 - August 2024
-
 
 ## System Components
 
@@ -28,6 +28,17 @@ The project consists of three primary programs, each responsible for a specific 
 - **`des_controller`**: The core program that runs the state machine for the building entry controller system. It manages persistent data and state transitions, handling inputs from the `des_inputs` program and sending status updates to the `des_display` program. The main logic for the entry control system resides in the `des_controller/des_controller.c` file, while the shared data structures and constants used across the programs are defined in the `des_controller/des.h` file.
 
 - **`des_inputs`**: Simulates input events from the devices (e.g., card readers, door latches, scale). It prompts the user for inputs and sends them as messages to the `des_controller` program. The command-line interface for simulating various input events is implemented in the `des_inputs/des_inputs.c` file.
+
+## Technologies and Concepts Used
+
+- **QNX Neutrino RTOS**: The real-time operating system used to run the project.
+- **C Programming Language**: The language used to implement the project.
+- **Message Passing**: Used for communication between processes via `MsgSend`, `MsgReceive`, and `MsgReply`.
+- **Semaphores**: Employed to manage synchronization between processes.
+- **Shared Memory**: Used to share data between different processes.
+- **State Machine Design**: Implements the logic for the entry control system, managing state transitions.
+- **Concurrent Processing**: Ensures multiple tasks are handled simultaneously.
+- **Channels**: Used for inter-process communication to pass messages between processes.
 
 ## Usage
 
@@ -62,8 +73,8 @@ The project consists of three primary programs, each responsible for a specific 
     - Import the project by selecting `File > Import... > General > Existing Projects into Workspace`.
 
 3. **Build the Project**:
-   - Ensure all projects (`des_display`, `des_controller`, `des_inputs`) are included in the workspace.
-   - Clean and build all projects by selecting `Project > Clean...` and then `Project > Build All`.
+    - Ensure all projects (`des_display`, `des_controller`, `des_inputs`) are included in the workspace.
+    - Clean and build all projects by selecting `Project > Clean...` and then `Project > Build All`.
 
 4. **Copy the binary files** to the target machine's `/tmp` folder.
 
@@ -74,8 +85,8 @@ The project consists of three primary programs, each responsible for a specific 
    cd /tmp  
    ./des_display &
     ```
-   - The `des_display` program will output its process ID when it starts running.  
-   
+    - The `des_display` program will output its process ID when it starts running.
+
 
 2. **Start `des_controller`**:
     ```
@@ -90,8 +101,8 @@ The project consists of three primary programs, each responsible for a specific 
    cd /tmp  
    ./des_inputs <controller_pid>
     ```
-   - Replace `<controller_pid>` with the process ID of the `des_controller` program obtained in step 2.
-   - The `des_inputs` program will prompt you to enter various events to simulate the building entry controller system.
+    - Replace `<controller_pid>` with the process ID of the `des_controller` program obtained in step 2.
+    - The `des_inputs` program will prompt you to enter various events to simulate the building entry controller system.
 
 
 4. **Follow the prompts** to simulate various events and observe the system's behavior in the `des_display` terminal.
@@ -128,6 +139,7 @@ The project consists of three primary programs, each responsible for a specific 
 ### Error Handling
 
 - The system remains in its current state when an invalid event is received, waiting for the correct input to transition to the next state.
+
 
 ## Sample scenarios
 

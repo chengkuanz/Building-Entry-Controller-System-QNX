@@ -82,7 +82,7 @@ The project consists of three primary programs, each responsible for a specific 
 
 1. **Start `des_display`**:
     ```
-   cd /tmp  
+   cd tmp  
    ./des_display &
     ```
     - The `des_display` program will output its process ID when it starts running.
@@ -90,7 +90,7 @@ The project consists of three primary programs, each responsible for a specific 
 
 2. **Start `des_controller`**:
     ```
-   cd /tmp  
+   cd tmp  
    ./des_controller <display_pid> &
     ```
     - Replace `<display_pid>` with the process ID of the `des_display` program obtained in step 1.
@@ -98,7 +98,7 @@ The project consists of three primary programs, each responsible for a specific 
 
 3. **Start `des_inputs`**:
     ```
-   cd /tmp  
+   cd tmp  
    ./des_inputs <controller_pid>
     ```
     - Replace `<controller_pid>` with the process ID of the `des_controller` program obtained in step 2.

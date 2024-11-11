@@ -6,6 +6,18 @@ This project is a simulation of a building entry controller system designed as p
 
 The project demonstrates the use of **semaphores**, **message passing** via `MsgSend`, `MsgReceive`, and `MsgReply` functions, **shared memory**, **channels** for inter-process communication, and **state machine design** to synchronize tasks and manage state transitions. Additionally, the project incorporates **concurrent processing** and **process synchronization** to ensure real-time operation.
 
+## Demo Video
+
+
+https://github.com/user-attachments/assets/1521b7b2-2fa4-41b2-b2dc-e64bcbc94220
+
+
+
+https://github.com/user-attachments/assets/321870a1-d33f-40ef-bb0e-229d322ed255
+
+
+
+
 ## Authors
 
 [Chengkuan Zhao](https://github.com/chengkuanz)  
